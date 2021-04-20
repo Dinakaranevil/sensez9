@@ -134,7 +134,7 @@
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                             <label for="city"></label>
                             <input type="text" id="city" name="city" maxlength="18" size="18"
-                                placeholder=" City & State "
+                                placeholder=" City"
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                             <label for="email"></label>
                             <input type="text" id="email" name="email" maxlength="100" size="18"
@@ -151,10 +151,10 @@
                             <input type="text" id="designation" name="designation" maxlength="18" size="18"
                                 placeholder=" Title "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                            <label for="country"></label>
-                            <input type="text" id="country" name="country" maxlength="18" size="18"
-                                placeholder=" Country "
-                                style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
+                                <select id="country1"  style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; ">
+                                   
+                                    </select>
+                                    <br><br>
                             <label for="fname"></label>
                             <input type="text" id="phone" name="phone" maxlength="18" size="18"
                                 placeholder=" Work Phone "
@@ -286,7 +286,7 @@
 
                         
                                 
-                                    <div class="card " style="width:600px;height:410px;position: absolute;top: 10%;left:13%;opacity: 0.9;background-color: lightgrey;">
+                                    <div class="card " style="width:600px;height:510px;position: absolute;top: 10%;left:13%;opacity: 0.9;background-color: lightgrey;">
         
                                         <h2>Contact Us </h2><br><br>
         
@@ -302,7 +302,7 @@
                                                     style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                                                 <label for="city"></label>
                                                 <input type="text" id="city" name="city" maxlength="18" size="18"
-                                                    placeholder=" City & State "
+                                                    placeholder=" City"
                                                     style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                                                 <label for="email"></label>
                                                 <input type="text" id="email" name="email" maxlength="100" size="18"
@@ -319,15 +319,16 @@
                                                 <input type="text" id="designation" name="designation" maxlength="18" size="18"
                                                     placeholder=" Title "
                                                     style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                                                <label for="country"></label>
-                                                <input type="text" id="country" name="country" maxlength="18" size="18"
-                                                    placeholder=" Country "
-                                                    style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                                                <label for="fname"></label>
-                                                <input type="text" id="phone" name="phone" maxlength="18" size="18"
-                                                    placeholder=" Work Phone "
-                                                    style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-        
+                                
+                                                <select id="country" style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; ">
+                                                    <Option value="States">States</Option>
+                                                    </select><br><br>
+                                                    <label for="country2"></label>
+                                                <input type="text" id="phone" name="phone" maxlength="18" size="18" placeholder=" Work Phone " style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>       
+                                                </div>
+                                           
+                                                <div>
+                                               
                                             </div>
                                             <input type="submit" value="Submit"
                                                 style="border-radius:50px; background-color:#4bacc8ff; color: white; width:200px ;padding:1px;height:30px;font-size:15px;text-align: center; ">
@@ -711,6 +712,57 @@ font-weight: bold; text-align:center;">
     <!-- JAVASCRIPT
 
     ================================================== -->
+    <script type="text/javascript">
+    console.log("getStates")
+ $.ajax({
+                    type: "POST",
+                    url: "http://104.211.67.151:9090/HealthClinicPMS/api/v1/getStateList",
+                    error: function(e) {
+                    console.log(e);
+                    // document.getElementById("loader").style.display="none";
+                    },
+                    success: function(response)
+                    {
+                        //console.log(response);
+                        console.log(typeof response);
+                        var response1=JSON.parse(JSON.stringify(response));
+                        //$("#loader").hide();
+                        //console.log(response1.data);
+
+                        console.log(response1);
+                        console.log(response1.obj[0].name);
+                        var i;
+                        var stringToAppend = "";
+                        for (i = 0; i < response1.obj.length; i++) {
+                            stringToAppend += "<option value='" + response1.obj[i].name+ "'>" + response1.obj[i].name + "</option>";
+
+                        }
+
+                        $("#country").html(stringToAppend);
+                        $("#country1").html(stringToAppend);
+                    
+                    
+                        // user is logged in successfully in the back-end
+                        // let's redirect
+                        
+                }
+            });
+    </script>
+
+<script>
+    $(function() {
+      $('.country').change(function() {
+        var selectedsubject = $('.country').val();
+        console.log(selectedsubject);
+        switch (selectedsubject) {
+          case ('Others'):
+             document.getElementById('country2').style.display = 'block';
+            break;
+          
+        }
+      })
+    });
+    </script>
 
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
 
