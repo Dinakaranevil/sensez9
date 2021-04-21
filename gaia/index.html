@@ -932,18 +932,17 @@
     
     <script>
         $(function() {
-          $('.country').change(function() {
-            var selectedsubject = $('.country').val();
+          $('#country').change(function() {
+            var selectedsubject = $('#country').val();
             console.log(selectedsubject);
             switch (selectedsubject) {
               case ('Others'):
-                 document.getElementById('country2').style.display = 'block';
+                    alert("Hello");
                 break;
-              
             }
           })
         });
-        </script>
+    </script>
     
 
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
