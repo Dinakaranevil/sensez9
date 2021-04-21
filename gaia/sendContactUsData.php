@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
            //echo $_SERVER['DOCUMENT_ROOT'] . 'PHPMailer-master/src/PHPMailer.php';
            
                 //$from_email='from_field_account@smartcadre.in';
-                $from_email='shreyash@gaia.in';
+                $from_email='admin@sensez9.tech';
 
                 // $from_email= 'from_field_account@smartcadre.in';
                 //Create a new PHPMailer instance
