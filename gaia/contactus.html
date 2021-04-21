@@ -962,31 +962,39 @@ font-weight: bold; text-align:center;">
                 console.log(document.getElementById("city").value);
                 console.log(document.getElementById("states").value);
                 console.log(document.getElementById("otherStates").value);
-
                 console.log(document.getElementById("country").value);
                 console.log(document.getElementById("designation").value);
                 console.log(document.getElementById("email").value);
                 console.log(document.getElementById("phone").value);
-                var fname=document.getElementById("fname").value
-                var lname=document.getElementById("lname").value 
-                var cname=document.getElementById("cname").value 
-                var city=document.getElementById("city").value 
-                var designation=document.getElementById("designation").value 
-                var email=document.getElementById("email").value 
-                var phone=document.getElementById("phone").value 
-            
-                var baseUrl = "http://sensez9.tech/sendContactUsData.php"
+                var fname = document.getElementById("fname").value
+                var lname = document.getElementById("lname").value
+                var cname = document.getElementById("cname").value
+                var city = document.getElementById("city").value
+                var designation = document.getElementById("designation").value
+                var email = document.getElementById("email").value
+                var phone = document.getElementById("phone").value
+                var otherStates = document.getElementById("otherStates").value
+                var states = document.getElementById("states").value
+                var country = document.getElementById("country").value
+                if(states=="Others"){
+                    states=otherStates;
+                    country=country
+                }else{
+                    country="USA"
+                }
 
+                var baseUrl = "http://sensez9.tech/sendContactUsData.php"
                 console.log(baseUrl);
-                var data={
-                        "fname":fname,
-                        "lname": lname,
-                        "cname":cname,
-                        "city":city,
-                        "country":country,
-                        "designation":designation,
-                        "email":email,
-                        "phone":phone,
+                var data = {
+                    "fname": fname,
+                    "lname": lname,
+                    "cname": cname,
+                    "city": city,
+                    "state": states,
+                    "country": country,
+                    "designation": designation,
+                    "email": email,
+                    "phone": phone,
                 }
             
                 //console.log(newdata);
