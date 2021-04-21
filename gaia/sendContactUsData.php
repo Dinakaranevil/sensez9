@@ -10,28 +10,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 	header("Access-Control-Allow-Credentials:'true'");
 	header("HTTP/1.1 200  Data loaded");
 } else {
-    if(isset($_POST)){
-        $response = array();
-        $con = new mysqli("localhost","root","Gaia@1234","Project211");
-        // Check connection
-        if ($con -> connect_errno) {
-        echo "Failed to connect to MySQL: " . $con -> connect_error;
-        exit();
-        }
-        $email = $_POST['email'];
-        $fname = $_POST['fname'];
-        $fname = $_POST['lname'];
-        $fname = $_POST['cname'];
-        $fname = $_POST['city'];
-        $fname = $_POST['designation'];
-        $fname = $_POST['phone'];
-        // echo $recipient_email;die('yyyy');
-        // Perform query
+        if(isset($_POST)){
+            $response = array();
+            
+            $email = $_POST['email'];
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $cname = $_POST['cname'];
+            $city = $_POST['city'];
+            $designation = $_POST['designation'];
+            $state = $_POST['state'];
+            $country = $_POST['country'];
+            $phone = $_POST['phone'];
 
-        $recipient_email="shreyashghag346@gmail.com,shreyashghag97@gmail.com";
-        require($_SERVER['DOCUMENT_ROOT'] . '/PHPMailer-master/src/PHPMailer.php');
+            // echo $recipient_email;die('yyyy');
+            // Perform query
+
+            $recipient_email="shreyash@gaia.in";
+            //echo $_SERVER['DOCUMENT_ROOT'] ;
+            require($_SERVER['DOCUMENT_ROOT'].'PHPMailer-master/src/PHPMailer.php');
+           //echo $_SERVER['DOCUMENT_ROOT'] . 'PHPMailer-master/src/PHPMailer.php';
+           
                 //$from_email='from_field_account@smartcadre.in';
                 $from_email='shreyash@gaia.in';
+
                 // $from_email= 'from_field_account@smartcadre.in';
                 //Create a new PHPMailer instance
                 $mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -44,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
                 //Set an alternative reply-to address
                 $mail->addReplyTo($from_email, 'Sensez9 Admin');
                 //Set who the message is to be sent to
+               
                 if($to_user==''){
                 $mail->addAddress($recipient_email, $recipient_email);
                 }else{
@@ -54,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
                         
                     }
                 }
+                
                 //Set the subject line
                 // $month_year=date("F Y",strtotime($current_month));
             
@@ -62,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
                 //Read an HTML message body from an external file, convert referenced images to embedded,
                 //convert HTML into a basic plain-text alternative body
                 $maildate = date('d M Y');
+                //echo $maildate;
                 // echo $month_year;
                 $mail->msgHTML('
                             <p><img style="display: block; margin-left: auto; margin-right: auto;" src="http://104.211.67.151/sensez9/images/image1.png" alt="" width="150" height="150" /></p><p style="text-align: center;">&nbsp;</p>
@@ -97,14 +102,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
                             <tr>
                             <td style="padding: 0cm 0cm 0cm 0cm;text-align:center;">
                             <p style="margin-bottom: 0.0001pt, line-height: normal;">
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">First Name:&nbsp;'.$fname.'</span></strong></p>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Last Name:&nbsp;'.$lname.'</span></strong></p>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Company Name:&nbsp;'.$cname.'</span></strong></p>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Designation:&nbsp;'.$designation.'</span></strong></p>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">City & State:&nbsp;'.$city.'</span></strong></p>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">First Name:&nbsp;'.$fname.'</span></strong></p><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Last Name:&nbsp;'.$lname.'</span></strong></p><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Company Name:&nbsp;'.$cname.'</span></strong></p><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Designation:&nbsp;'.$designation.'</span></strong></p><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Work Email ID:&nbsp;'.$email.'</span></strong></p><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Work Phone no:&nbsp;'.$phone.'</span></strong></p><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">City :&nbsp;'.$city.'</span></strong></p><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">State:&nbsp;'.$state.'</span></strong></p><br>
                             <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Country:&nbsp;'.$country.'</span></strong></p>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Work Email ID:&nbsp;'.$email.'</span></strong></p>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Work Phone no:&nbsp;'.$phone.'</span></strong></p>
                             </td>
                             </tr>
                             </tbody>
@@ -133,14 +139,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
                 
                 //send the message, check for errors
                 if (!$mail->send()) {
-                    $response=["message"=>"Failed to Send Mail.","data"=>0,"status"=>201];
-                    //$response=["message"=>"'Mailer Error: ' . $mail->ErrorInfo","data"=>0,"status"=>200];
+                    //$response=["message"=>"Failed to Send Mail.","data"=>0,"status"=>201];
+                    $response=["message"=>"'Mailer Error: ' . $mail->ErrorInfo","data"=>0,"status"=>200];
                 }else{
                     $response=["message"=>"Mail Send Sucessfully.","data"=>1,"status"=>200];
                 }
-            }  
-        
-        echo json_encode($response);
+               
+        }  
+           
+            echo json_encode($response);
     }
 
 ?>
