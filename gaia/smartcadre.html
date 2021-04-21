@@ -138,15 +138,19 @@
                             <input type="text" id="cname" name="cname" maxlength="18" size="18"
                                 placeholder=" Company Name "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                            <label for="city"></label>
-                            <input type="text" id="city" name="city" maxlength="18" size="18"
-                                placeholder=" City"
-                                style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                            <label for="email"></label>
+                                  <label for="email"></label>
                             <input type="text" id="email" name="email" maxlength="100" size="18"
                                 placeholder=" Work Email "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-
+                                <label for="city"></label>
+                                <input type="text" id="city" name="city" maxlength="18" size="18"
+                                    placeholder=" City"
+                                    style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
+                              
+                                <input type="text" id="country" name="country" maxlength="18" size="18"
+                                placeholder="Country"
+                                style="border-radius:10px;width:247px ;display:none;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
+                        
 
                         </div>
                         <div class="column2" style="padding:1px">
@@ -157,13 +161,16 @@
                             <input type="text" id="designation" name="designation" maxlength="18" size="18"
                                 placeholder=" Title "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-            
-                            <select id="country" style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc;">
+                                <input type="text" id="phone" name="phone" maxlength="18" size="18" placeholder=" Work Phone " style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
+                            <select id="states" style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc;">
                                 <Option value="States">States</Option>
                                 </select><br><br>
-                                <label for="country2"></label>
-                            <input type="text" id="phone" name="phone" maxlength="18" size="18" placeholder=" Work Phone " style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>       
-                            </div>
+                                <label for="states"></label>
+                            <input type="text" id="otherStates" name="otherStates" maxlength="18" size="18"
+                            placeholder="State"
+                            style="border-radius:10px;width:247px; display:none;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
+            
+                        </div>
                        
                             <div>
                            
@@ -918,9 +925,8 @@ font-weight: bold; text-align:center;">
                                 stringToAppend += "<option value='" + response1.obj[i].name+ "'>" + response1.obj[i].name + "</option>";
     
                             }
-    
-                            $("#country").html(stringToAppend);
-                            $("#country1").html(stringToAppend);
+                            $("#states").html(stringToAppend);
+
                         
                         
                             // user is logged in successfully in the back-end
@@ -932,18 +938,22 @@ font-weight: bold; text-align:center;">
     
     <script>
         $(function() {
-          $('.country').change(function() {
-            var selectedsubject = $('.country').val();
+          $('#states').change(function() {
+            var selectedsubject = $('#states').val();
             console.log(selectedsubject);
-            switch (selectedsubject) {
-              case ('Others'):
-                 document.getElementById('country2').style.display = 'block';
-                break;
-              
-            }
+           if(selectedsubject=="Others") {
+             
+                    //alert("Hello");
+                    $('#otherStates').show()
+                    $('#country').show()
+           }else{
+            $('#otherStates').hide()
+                    $('#country').hide()
+           }
+            
           })
         });
-        </script>
+    </script>
 
 
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
@@ -1099,25 +1109,37 @@ font-weight: bold; text-align:center;">
                 console.log(document.getElementById("lname").value);
                 console.log(document.getElementById("cname").value);
                 console.log(document.getElementById("city").value);
+                console.log(document.getElementById("states").value);
+                console.log(document.getElementById("otherStates").value);
                 console.log(document.getElementById("country").value);
                 console.log(document.getElementById("designation").value);
                 console.log(document.getElementById("email").value);
                 console.log(document.getElementById("phone").value);
                 var fname = document.getElementById("fname").value
-                var lname = document.getElementById("fname").value
+                var lname = document.getElementById("lname").value
                 var cname = document.getElementById("cname").value
                 var city = document.getElementById("city").value
                 var designation = document.getElementById("designation").value
                 var email = document.getElementById("email").value
                 var phone = document.getElementById("phone").value
+                var otherStates = document.getElementById("otherStates").value
+                var states = document.getElementById("states").value
+                var country = document.getElementById("country").value
+                if(states=="Others"){
+                    states=otherStates;
+                    country=country
+                }else{
+                    country="USA"
+                }
 
-                var baseUrl = "http://52.172.143.158/senze9/sendContactUsData.php"
+                var baseUrl = "http://sensez9.tech/sendContactUsData.php"
                 console.log(baseUrl);
                 var data = {
                     "fname": fname,
                     "lname": lname,
                     "cname": cname,
                     "city": city,
+                    "state": states,
                     "country": country,
                     "designation": designation,
                     "email": email,
