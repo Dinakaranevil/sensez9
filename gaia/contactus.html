@@ -121,52 +121,52 @@
                         <div class="close" data-dismiss="modal">&times;</div>
                         <h3 class="modal-title">Contact Us for Demo</h3>                
                     </div>
-                    <form method="POST" id="emailform" >
+                    <form method="POST" id="emailform1" >
                         <div class="column1" style="padding:1px;">
                             <label for="fname"></label>
-                            <input type="text" id="fname" name="fname" maxlength="18" size="18"
+                            <input type="text" id="fname1" name="fname1" maxlength="18" size="18"
                                 placeholder=" First Name"
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;   border: 1px solid #ccc;                                        ;"><br><br>
                             <label for="fname"></label>
-                            <input type="text" id="cname" name="cname" maxlength="18" size="18"
+                            <input type="text" id="cname1" name="cname1" maxlength="18" size="18"
                                 placeholder=" Company Name "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                                   <label for="email"></label>
-                            <input type="text" id="email" name="email" maxlength="100" size="18"
+                            <input type="text" id="email1" name="email1" maxlength="100" size="18"
                                 placeholder=" Work Email "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                                 <label for="city"></label>
-                                <input type="text" id="city" name="city" maxlength="18" size="18"
+                                <input type="text" id="city1" name="city1" maxlength="18" size="18"
                                     placeholder=" City"
                                     style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                               
-                                <input type="text" id="country" name="country" maxlength="18" size="18"
+                                <input type="text" id="country1" name="country1" maxlength="18" size="18"
                                 placeholder="Country"
                                 style="border-radius:10px;width:247px ;display:none;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                         
 
                         </div>
                         <div class="column1" style="padding:1px">
-                            <input type="text" id="lname" name="lname" maxlength="18" size="18"
+                            <input type="text" id="lname1" name="lname1" maxlength="18" size="18"
                                 placeholder=" Last Name"
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                             <label for="designation"></label>
-                            <input type="text" id="designation" name="designation" maxlength="100" size="18"
+                            <input type="text" id="designation1" name="designation1" maxlength="100" size="18"
                                 placeholder=" Title "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                                <input type="text" id="phone" name="phone" maxlength="18" size="18" placeholder=" Work Phone " style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                            <select id="states" style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc;">
+                                <input type="text" id="phone1" name="phone1" maxlength="18" size="18" placeholder=" Work Phone " style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
+                            <select id="states1" style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc;">
                                 <Option value="States">States</Option>
                                 </select><br><br>
                                 <label for="states"></label>
-                            <input type="text" id="otherStates" name="otherStates" maxlength="18" size="18"
+                            <input type="text" id="otherStates1" name="otherStates1" maxlength="18" size="18"
                             placeholder="State"
                             style="border-radius:10px;width:247px; display:none;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
             
                         </div>
                        
                             <div>
-                                <div id="thankyou" name="thankyou" style="display:none;">
+                                <div id="thankyou1" name="thankyou1" style="display:none;">
 
                                     <p><h4>Thank you for contacting us. We will connect with you shortly.</h4></p>
                                 </div>
@@ -794,6 +794,23 @@ font-weight: bold; text-align:center;">
         
       })
     });
+
+    $(function() {
+      $('#states1').change(function() {
+        var selectedsubject = $('#states1').val();
+        console.log(selectedsubject);
+       if(selectedsubject=="Others") {
+         
+                //alert("Hello");
+                $('#otherStates1').show()
+                $('#country1').show()
+       }else{
+        $('#otherStates1').hide()
+        $('#country1').hide()
+       }
+        
+      })
+    });
 </script>
 
 
@@ -1011,6 +1028,82 @@ font-weight: bold; text-align:center;">
                         console.log(typeof response1.data);
                     
                         $("#thankyou").show();
+
+                        // user is logged in successfully in the back-end
+                        // let's redirect
+                        
+                }
+            });
+                })
+      
+        });
+
+        $(document).ready(function() {
+            $('#emailform1').submit(function(e) {
+                e.preventDefault();
+                console.log(document.getElementById("fname1").value);
+                console.log(document.getElementById("lname1").value);
+                console.log(document.getElementById("cname1").value);
+                console.log(document.getElementById("city1").value);
+                console.log(document.getElementById("states1").value);
+                console.log(document.getElementById("otherStates1").value);
+                console.log(document.getElementById("country1").value);
+                console.log(document.getElementById("designation1").value);
+                console.log(document.getElementById("email1").value);
+                console.log(document.getElementById("phone1").value);
+                var fname = document.getElementById("fname1").value
+                var lname = document.getElementById("lname1").value
+                var cname = document.getElementById("cname1").value
+                var city = document.getElementById("city1").value
+                var designation = document.getElementById("designation1").value
+                var email = document.getElementById("email1").value
+                var phone = document.getElementById("phone1").value
+                var otherStates = document.getElementById("otherStates1").value
+                var states = document.getElementById("states1").value
+                var country = document.getElementById("country1").value
+                if(states=="Others"){
+                    if(states)
+                    states=otherStates;
+                    country=country
+                }else{
+                    country="USA"
+                }
+
+                var baseUrl = "http://sensez9.tech/sendContactUsData.php"
+                console.log(baseUrl);
+                var data = {
+                    "fname": fname,
+                    "lname": lname,
+                    "cname": cname,
+                    "city": city,
+                    "state": states,
+                    "country": country,
+                    "designation": designation,
+                    "email": email,
+                    "phone": phone,
+                }
+            
+                //console.log(newdata);
+                $.ajax({
+                    type: "POST",
+                    url: baseUrl,
+                    data:data,
+                    error: function(e) {
+                    console.log(e);
+                    // document.getElementById("loader").style.display="none";
+                    },
+                    success: function(response)
+                    {
+                        //console.log(response);
+                        console.log(typeof response);
+                        var response1=JSON.parse(response);
+                        //$("#loader").hide();
+                        //console.log(response1.data);
+
+                        console.log(typeof response1);
+                        console.log(typeof response1.data);
+                    
+                        $("#thankyou1").show();
 
                         // user is logged in successfully in the back-end
                         // let's redirect
