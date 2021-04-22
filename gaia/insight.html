@@ -129,8 +129,8 @@
 
 
 
-                            
-                    <form method="POST" id="emailform" >
+
+                    <form method="POST" id="emailform">
                         <div class="column2" style="padding:1px;">
                             <label for="fname"></label>
                             <input type="text" id="fname" name="fname" maxlength="18" size="18"
@@ -140,45 +140,48 @@
                             <input type="text" id="cname" name="cname" maxlength="18" size="18"
                                 placeholder=" Company Name "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                                  <label for="email"></label>
+                            <label for="email"></label>
                             <input type="text" id="email" name="email" maxlength="100" size="18"
                                 placeholder=" Work Email "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                                <label for="city"></label>
-                                <input type="text" id="city" name="city" maxlength="18" size="18"
-                                    placeholder=" City"
-                                    style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                              
-                                <input type="text" id="country" name="country" maxlength="18" size="18"
-                                placeholder="Country"
-                                style="border-radius:10px;width:247px ;display:none;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                        
+                            <label for="city"></label>
+                            <input type="text" id="city" name="city" maxlength="18" size="18" placeholder=" City"
+                                style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
+
+                            <input type="text" id="otherStates" name="otherStates" maxlength="18" size="18"
+                                placeholder="State"
+                                style="border-radius:10px;width:247px; display:none;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
+
 
                         </div>
                         <div class="column2" style="padding:1px">
-                            <input type="text" id="lname" name="lname" maxlength="18" size="18"
-                                placeholder=" Last Name"
+                            <input type="text" id="lname" name="lname" maxlength="18" size="18" placeholder=" Last Name"
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                             <label for="designation"></label>
                             <input type="text" id="designation" name="designation" maxlength="100" size="18"
                                 placeholder=" Title "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                                <input type="text" id="phone" name="phone" maxlength="18" size="18" placeholder=" Work Phone " style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-                            <select id="states" style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc;">
+                            <input type="text" id="phone" name="phone" maxlength="18" size="18"
+                                placeholder=" Work Phone "
+                                style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
+                            <select id="states"
+                                style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc;">
                                 <Option value="States">States</Option>
-                                </select><br><br>
-                                <label for="states"></label>
-                            <input type="text" id="otherStates" name="otherStates" maxlength="18" size="18"
-                            placeholder="State"
-                            style="border-radius:10px;width:247px; display:none;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
-            
-                        </div>
-                       
-                            <div>
-                                <div id="thankyou" name="thankyou" style="display:none;">
+                            </select><br><br>
+                            <label for="states"></label>
+                            <input type="text" id="country" name="country" maxlength="18" size="18"
+                                placeholder="Country"
+                                style="border-radius:10px;width:247px ;display:none;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
 
-                                    <p><h4>Thank you for contacting us. We will connect with you shortly.</h4></p>
-                                </div>
+                        </div>
+
+                        <div>
+                            <div id="thankyou" name="thankyou" style="display:none;">
+
+                                <p>
+                                    <h4>Thank you for contacting us. We will connect with you shortly.</h4>
+                                </p>
+                            </div>
                         </div>
                         <input type="submit" value="Submit"
                             style="border-radius:50px; background-color:#4bacc8ff; color: white; width:200px ;padding:1px;height:30px;font-size:15px;text-align: center; ">
@@ -500,7 +503,8 @@ font-weight: bold; text-align:center;">
                                 <p
                                     style="text-align:justify;font-size:13.2px; font-family: 'RobotoRegular', sans-serif;line-height: 1.5">
                                     Analytics: Real-Time Data, Time Series Analysis, Comparative Analytics <br>
-                                    Visualization:  Dashboards, Reports, Drill down capabilities                                    <br>Action Engine:  Automatic Alerts, Customizable Rules
+                                    Visualization: Dashboards, Reports, Drill down capabilities <br>Action Engine:
+                                    Automatic Alerts, Customizable Rules
 
                                 </p>
                             </div>
@@ -519,9 +523,9 @@ font-weight: bold; text-align:center;">
 
                                 <p
                                     style="text-align:justify;font-size:14px; font-family: 'RobotoRegular', sans-serif;line-height: 1.5">
-                                    Automation:  Map trends, Trigger data driven workflows
-                                    <br>Enhanced Analytics:  Custom AI/ML predictive algorithms
-                                    <br>Integration:  API based integrations and customizations
+                                    Automation: Map trends, Trigger data driven workflows
+                                    <br>Enhanced Analytics: Custom AI/ML predictive algorithms
+                                    <br>Integration: API based integrations and customizations
                                 </p>
                             </div>
 
@@ -679,11 +683,11 @@ font-weight: bold; text-align:center;">
                                 <p style="padding :0px 0px 0px 30px;">9081 Sherwood Court
                                     <br>Presto, PA 15142<br><br>
 
-                                   Pittsburgh .
-                                   Mumbai .
-                                   <br><br>
-                                   Sensez9 is powered by Gaia, one of India’s leading technology companies.
-                               </p>
+                                    Pittsburgh .
+                                    Mumbai .
+                                    <br><br>
+                                    Sensez9 is powered by Gaia, one of India’s leading technology companies.
+                                </p>
                         </div>
                         <div class="two columns"></div>
                         <div class="columns" style="padding:5px 10px 5px 0px;">
@@ -811,58 +815,58 @@ font-weight: bold; text-align:center;">
     ================================================== -->
     <script type="text/javascript">
         console.log("getStates")
-     $.ajax({
-                        type: "POST",
-                        url: "http://104.211.67.151:9090/HealthClinicPMS/api/v1/getStateList",
-                        error: function(e) {
-                        console.log(e);
-                        // document.getElementById("loader").style.display="none";
-                        },
-                        success: function(response)
-                        {
-                            //console.log(response);
-                            console.log(typeof response);
-                            var response1=JSON.parse(JSON.stringify(response));
-                            //$("#loader").hide();
-                            //console.log(response1.data);
-    
-                            console.log(response1);
-                            console.log(response1.obj[0].name);
-                            var i;
-                            var stringToAppend = "";
-                            stringToAppend += "<option value='States'>States</option>";
+        $.ajax({
+            type: "POST",
+            url: "http://104.211.67.151:9090/HealthClinicPMS/api/v1/getStateList",
+            error: function (e) {
+                console.log(e);
+                // document.getElementById("loader").style.display="none";
+            },
+            success: function (response) {
+                //console.log(response);
+                console.log(typeof response);
+                var response1 = JSON.parse(JSON.stringify(response));
+                //$("#loader").hide();
+                //console.log(response1.data);
 
-                            for (i = 0; i < response1.obj.length; i++) {
-                                stringToAppend += "<option value='" + response1.obj[i].name+ "'>" + response1.obj[i].name + "</option>";
-    
-                            }
-    
-                            $("#states").html(stringToAppend);
-                          
-                        
-                            // user is logged in successfully in the back-end
-                            // let's redirect
-                            
-                    }
-                });
-        </script>
-    
+                console.log(response1);
+                console.log(response1.obj[0].name);
+                var i;
+                var stringToAppend = "";
+                stringToAppend += "<option value='States'>States</option>";
+
+                for (i = 0; i < response1.obj.length; i++) {
+                    stringToAppend += "<option value='" + response1.obj[i].name + "'>" + response1.obj[i]
+                        .name + "</option>";
+
+                }
+
+                $("#states").html(stringToAppend);
+
+
+                // user is logged in successfully in the back-end
+                // let's redirect
+
+            }
+        });
+    </script>
+
     <script>
-        $(function() {
-          $('#states').change(function() {
-            var selectedsubject = $('#states').val();
-            console.log(selectedsubject);
-           if(selectedsubject=="Others") {
-             
+        $(function () {
+            $('#states').change(function () {
+                var selectedsubject = $('#states').val();
+                console.log(selectedsubject);
+                if (selectedsubject == "Others") {
+
                     //alert("Hello");
                     $('#otherStates').show()
                     $('#country').show()
-           }else{
-            $('#otherStates').hide()
+                } else {
+                    $('#otherStates').hide()
                     $('#country').hide()
-           }
-            
-          })
+                }
+
+            })
         });
     </script>
 
@@ -1035,11 +1039,11 @@ font-weight: bold; text-align:center;">
                 var otherStates = document.getElementById("otherStates").value
                 var states = document.getElementById("states").value
                 var country = document.getElementById("country").value
-                if(states=="Others"){
-                    states=otherStates;
-                    country=country
-                }else{
-                    country="USA"
+                if (states == "Others") {
+                    states = otherStates;
+                    country = country
+                } else {
+                    country = "USA"
                 }
 
                 var baseUrl = "http://sensez9.tech/sendContactUsData.php"
