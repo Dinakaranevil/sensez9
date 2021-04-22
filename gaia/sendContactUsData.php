@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
             $state = $_POST['state'];
             $country = $_POST['country'];
             $phone = $_POST['phone'];
-
+            $message_type=$_POST['meesage_type'];
             // echo $recipient_email;die('yyyy');
             // Perform query
 
@@ -47,30 +47,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
                 $mail->addReplyTo($from_email, 'Sensez9 Admin');
                 //Set who the message is to be sent to
                
-                if($to_user==''){
-                $mail->addAddress($recipient_email, $recipient_email);
-                }else{
-                    $to_users= explode(",",$to_user);
-                    foreach($to_users as $key ){
-                        //  echo $key;
-                            $mail->addAddress($key,$key);
-                        
-                    }
-                }
+                $mail->addAddress($recipient_email);
+                $mail->addAddress("dinakaran@sesovera.ai");
+                $mail->addAddress("mayuri@gaia.in");
+                $mail->addAddress("jake@sensez9.tech");
+                $mail->addAddress("richie@sensez9.tech");
+                //Thank you for contacting us. We will connect with you shortly.
+                
                 
                 //Set the subject line
                 // $month_year=date("F Y",strtotime($current_month));
             
 
-                $mail->Subject = 'New Query from Senez9 website.';
+                $mail->Subject = 'New Query from Sensez9 Website.';
                 //Read an HTML message body from an external file, convert referenced images to embedded,
                 //convert HTML into a basic plain-text alternative body
                 $maildate = date('d M Y');
                 //echo $maildate;
                 // echo $month_year;
                 $mail->msgHTML('
-                            <p><img style="display: block; margin-left: auto; margin-right: auto;" src="http://104.211.67.151/sensez9/images/image1.png" alt="" width="150" height="150" /></p><p style="text-align: center;">&nbsp;</p>
-                            <p style="text-align: center;"><strong><span style="font-size: 28.0pt; line-height: 115%;">Welcome Aboard </span></strong></p>
+                            <p><img style="display: block; margin-left: auto; margin-right: auto;" src="http://104.211.67.151/sensez9/images/image1.png" alt="" width="140" height="100" /></p><p style="text-align: center;">&nbsp;</p>
                             <p style="text-align: center;"><span style="font-size: 20.0pt; line-height: 115%;">'.$maildate.'</span></p>
                             <p>&nbsp;</p>
                             <table style="width: 390pt; margin-left: auto; margin-right: auto;" width="390pt">
@@ -85,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
                             </tr>
                             <tr>
                             <td style="padding: 0cm; ">
-                            <p style="margin-bottom: .0001pt; line-height: 200%;"><span style="font-size: 12.0pt; line-height: 200%; font-family: "Helvetica",sans-serif; color: #282828;">You have a new From Sensez9 Website.</span></p>
+                            <p style="margin-bottom: .0001pt; line-height: 200%;"><span style="font-size: 12.0pt; line-height: 200%; font-family: "Helvetica",sans-serif; color: #282828;">You have a new '.$message_type.' Message From Sensez9 Website.</span></p>
                             </td>
                             </tr>
                             <tr>
@@ -100,16 +96,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
                             <table style="width: 100.0%;" width="100%">
                             <tbody>
                             <tr>
-                            <td style="padding: 0cm 0cm 0cm 0cm;text-align:center;">
+                            <td style="padding: 0cm 0cm 0cm 0cm;text-align:left;">
                             <p style="margin-bottom: 0.0001pt, line-height: normal;">
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">First Name:&nbsp;'.$fname.'</span></strong></p><br>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Last Name:&nbsp;'.$lname.'</span></strong></p><br>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Company Name:&nbsp;'.$cname.'</span></strong></p><br>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Designation:&nbsp;'.$designation.'</span></strong></p><br>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Work Email ID:&nbsp;'.$email.'</span></strong></p><br>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Work Phone no:&nbsp;'.$phone.'</span></strong></p><br>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">City :&nbsp;'.$city.'</span></strong></p><br>
-                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">State:&nbsp;'.$state.'</span></strong></p><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">First Name:&nbsp;'.$fname.'</span></strong><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Last Name:&nbsp;'.$lname.'</span></strong><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Company Name:&nbsp;'.$cname.'</span></strong><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Designation:&nbsp;'.$designation.'</span></strong><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Work Email ID:&nbsp;'.$email.'</span></strong><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Work Phone no:&nbsp;'.$phone.'</span></strong><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">City :&nbsp;'.$city.'</span></strong><br>
+                            <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">State:&nbsp;'.$state.'</span></strong><br>
                             <strong><span style="font-size: 13.5pt; font-family: "Helvetica",sans-serif; color: #282828;">Country:&nbsp;'.$country.'</span></strong></p>
                             </td>
                             </tr>
