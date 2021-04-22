@@ -1303,6 +1303,7 @@ font-weight: bold; text-align:center;">
                     "designation": designation,
                     "email": email,
                     "phone": phone,
+                    "meesage_type":"DEMO",
                 }
 
                 //console.log(newdata);
@@ -1324,15 +1325,20 @@ font-weight: bold; text-align:center;">
                         console.log(typeof response1);
                         console.log(typeof response1.data);
 
-
+                        $("#thankyou").show();
+                        setTimeout(alertFunc, 3000);
                         // user is logged in successfully in the back-end
                         // let's redirect
-
                     }
                 });
             })
 
         });
+
+        function alertFunc() {
+            $("#thankyou").hide();
+            $("#myModal .close").click()
+        }
     </script>
 
     <script type="text/javascript" src="js/styleswitcher.js"></script>
