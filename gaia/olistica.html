@@ -157,7 +157,7 @@
                                 placeholder=" Last Name"
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                             <label for="designation"></label>
-                            <input type="text" id="designation" name="designation" maxlength="18" size="18"
+                            <input type="text" id="designation" name="designation" maxlength="100" size="18"
                                 placeholder=" Title "
                                 style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
                                 <input type="text" id="phone" name="phone" maxlength="18" size="18" placeholder=" Work Phone " style="border-radius:10px;width:247px ;height:27px;font-size:15px;text-align: center;  border: 1px solid #ccc; "><br><br>
@@ -172,7 +172,10 @@
                         </div>
                        
                             <div>
-                           
+                                <div id="thankyou" name="thankyou" style="display:none;">
+
+                                    <p><h4>Thank you for contacting us. We will connect with you shortly.</h4></p>
+                                </div>
                         </div>
                         <input type="submit" value="Submit"
                             style="border-radius:50px; background-color:#4bacc8ff; color: white; width:200px ;padding:1px;height:30px;font-size:15px;text-align: center; ">
@@ -1071,6 +1074,8 @@ font-weight: bold; text-align:center;">
                             console.log(response1.obj[0].name);
                             var i;
                             var stringToAppend = "";
+                            stringToAppend += "<option value='States'>States</option>";
+
                             for (i = 0; i < response1.obj.length; i++) {
                                 stringToAppend += "<option value='" + response1.obj[i].name+ "'>" + response1.obj[i].name + "</option>";
     
@@ -1082,6 +1087,8 @@ font-weight: bold; text-align:center;">
                         
                             // user is logged in successfully in the back-end
                             // let's redirect
+                            $("#thankyou").show();
+
                             
                     }
                 });
