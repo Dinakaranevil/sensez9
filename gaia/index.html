@@ -176,7 +176,10 @@
                         </div>
                        
                             <div>
-                           
+                                <div id="thankyou" name="thankyou" style="display:none;">
+
+                                    <p><h4>Thank you for contacting us. We will connect with you shortly.</h4></p>
+                                </div>
                         </div>
                         <input type="submit" value="Submit"
                             style="border-radius:50px; background-color:#4bacc8ff; color: white; width:200px ;padding:1px;height:30px;font-size:15px;text-align: center; ">
@@ -922,6 +925,7 @@
                             var i;
                             var stringToAppend = "";
                             for (i = 0; i < response1.obj.length; i++) {
+                                stringToAppend += "<option value='States'>States</option>";
                                 stringToAppend += "<option value='" + response1.obj[i].name+ "'>" + response1.obj[i].name + "</option>";
     
                             }
@@ -1167,7 +1171,7 @@
                         console.log(typeof response1);
                         console.log(typeof response1.data);
 
-
+                        $("#thankyou").show();
                         // user is logged in successfully in the back-end
                         // let's redirect
 
